@@ -1,27 +1,20 @@
 #include <gtest.h>
 //my changes
-#include"tbitfield.h"
+#include"tset.h"
 //eto ochen' vazhnii komentarii
 
 
-// bf1 = 0011
-// bf2 = 01010
+//a=01101
+//b=0110001
+// set1 = {1, 2, 4}
+// set2 = {0, 1, 2, 6}
+//set3 = set1 + set2;
+// expSet = {0, 1, 2, 4, 6}
 int main(int argc, char **argv) {
+    TSet a(0);
     
-    //TBitField a(10);
-    //a.SetBit(3);
-    //std::cout << "c)" << (a);
-    //return 0;
-
-
-    //TBitField a(32),b(17),c(0);
-    //std::cin >> a;
-    //std::cout << "a)" << a<<std::endl;
-    //std::cin >> b;
-    //std::cout<< "\n" << "b)" << b << std::endl;    
-    //std::cout <<"c)" << (a|b);
-    //return 0;
-
-    ::testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
+    cin >> a;
+    cout << "\n" << a;
+    //::testing::InitGoogleTest(&argc, argv);
+    //return RUN_ALL_TESTS();
 }
