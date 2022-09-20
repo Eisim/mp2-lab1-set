@@ -124,15 +124,16 @@ TBitField TBitField::operator|(const TBitField &bf) // операция "или"
 
 TBitField TBitField::operator&(const TBitField &bf) // операция "и"
 {
-    int minbitsize = std::min(MemLen, bf.MemLen);
-    TBitField result(std::max(BitLen, bf.BitLen));
+     int minsize= std::min(BitLen, bf.BitLen),maxsize= std::max(BitLen, bf.BitLen);
+    TBitField result(std::max(BitLen,bf.BitLen));
     
-
     
-    for (int i = 0; i < minbitsize; i++)
-        result.pMem[i] = pMem[i] & bf.pMem[i];
     
-return result;
+    for (int i = 0; i < minsize; i++)
+        (GetBit(i) && bf.GetBit(i)) ? result.SetBit(i):0;
+    
+    return result;
+    
 
 }
 
