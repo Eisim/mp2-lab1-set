@@ -12,8 +12,8 @@ TBitField::TBitField(int len)
     if (len < 0) throw std::exception("less than  0");
 
     BitLen = len;
-    if ((unsigned int)(len / (sizeof(TELEM))) * (sizeof(TELEM)) == len) MemLen = len / (sizeof(TELEM));
-    else  MemLen = len / (sizeof(TELEM)) + 1;
+    if ((unsigned int)(len / (sizeof(TELEM))) * (sizeof(TELEM)) == len) MemLen = len / ((sizeof(TELEM)*8));
+    else  MemLen = len / ((sizeof(TELEM)*8)) + 1;
     pMem = new TELEM[MemLen];
     for (int i = 0; i < MemLen; i++)pMem[i] = 0;
    
@@ -46,7 +46,7 @@ TELEM TBitField::GetMemMask(const int n) const // битовая маска дл
         throw std::exception("Index out of range.");
         return TELEM();
     }
-    return (1 << ((n) -GetMemIndex(n) * sizeof(TELEM) * 8));
+    return ((TELEM)1 << ((n) -GetMemIndex(n) * sizeof(TELEM) * 8));
 
 
 }
